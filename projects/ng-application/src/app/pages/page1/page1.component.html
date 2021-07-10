@@ -1,1 +1,32 @@
-<p>page1 works!</p>
+<mat-accordion>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header
+      >Extensible content. Two pieces of content
+      available.</mat-expansion-panel-header
+    >
+    <app-extensible-content>
+      <span quote
+        ><span [style.color]="'#fff'">Roads?</span> Where we're going, we don't
+        need... <span [style.color]="'#fff'">roads</span>.</span
+      >
+      <span author>Dr. Emmett Brown</span>
+      <span source>Back to the Future</span>
+    </app-extensible-content>
+  </mat-expansion-panel>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header
+      >Extensible item template. Pass template to child
+      component.</mat-expansion-panel-header
+    >
+    <app-extensible-list [items]="characters" [itemTemplate]="itemTemplate">
+      <ng-template #itemTemplate let-item="item">
+        <div class="item">
+          <span>{{ item.name }}</span>
+          <button mat-raised-button color="accent" [matBadge]="item.country">
+            <mat-icon>phone</mat-icon>{{ item.phoneNumber }}
+          </button>
+        </div>
+      </ng-template>
+    </app-extensible-list>
+  </mat-expansion-panel>
+</mat-accordion>
